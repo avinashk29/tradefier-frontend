@@ -1,0 +1,39 @@
+.conatiner{
+    width: 70%;
+    margin: 0px auto;
+}
+.feed_card{
+	width: 40%;
+    margin: 0px auto;
+	height: 400px;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+	 border: 1px solid  #2E123d;
+	 margin-top: 5%;
+}
+.feed_image{
+	width: 100%;
+	height: 75%;
+	background-color: yellow;
+}
+.feed_image img{
+	width: 100%;
+	height: 100%;
+}
+.feed_info{
+	width: 95%;
+	margin: 0px auto;
+}
+.add_btn{
+	width: 15%;
+	margin: 0 auto;
+	background-color: red;
+	height: 40px;
+	margin-top: 40px;
+}
+.add_btn button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: #2E123d;
+	color: #fff;
+}

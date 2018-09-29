@@ -1,0 +1,57 @@
+.conatiner{
+    width: 40%;
+    height: 100%;
+    margin: 0px auto;
+}
+.page_heading h2{
+    text-align: center;
+    font-weight: 300;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    width: 100%;
+    
+}
+li input,li textarea{
+    width: 100%;
+    padding: 10px 10px 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline: #f1f1f1;
+}
+.btn{
+  margin-top: 40px;
+   width: 100%; 
+}
+.btn button{
+    margin: 0 auto;
+    width: 50%;
+    margin-left: 25%;
+    border: none;
+    height: 40px;
+    background-color: #333333;
+    color: #f1f1f1;
+}
+.image_btn{
+    display: flex;
+}
+.image_link{
+    width: 45%;
+}
+.image_button{
+    width: 45%;
+}
+.image_button button{
+    padding: 10px 10px 13px;
+    margin-top: 20px;
+    width: 100%;
+    margin-left: 85px;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+}
+li textarea{
+    height: 90px;
+}

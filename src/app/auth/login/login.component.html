@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="conatiner">
+  
+    <div class="page_heading">
+        <h2>Login Form</h2>
+      </div>
+  <div class="form">
+      <form (submit)="onSubmit()">
+    <ul>
+     <li><input type="Email" name="Email" placeholder="User Your Email" [(ngModel)]="Email"  ></li>
+     <li><input type="password" name="Password" placeholder="Enter Password" [(ngModel)]="Password"></li>
+     <div class="btn"><button>Log in </button></div>
+    </ul>
+  </form>
+  </div>
+
+</div>

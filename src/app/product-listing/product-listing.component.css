@@ -1,0 +1,81 @@
+.conatiner{
+    width: 70%;
+    margin: 0px auto;
+}
+.product_list{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 0 auto;
+}
+.product_card{
+	min-width: 40%;
+	max-width: 40%;
+	height: 400px;
+	background-color: #ffffff;
+	 box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+	 margin-left:  28px;
+	 border: 1px solid  #2E123d;
+	 margin: 0 auto;
+	 margin-top: 4%;
+	 
+}
+.product_image{
+	width: 100%;
+	height: 250px;
+}
+.product_image img{
+	width: 100%;
+	height: 100%;
+}
+.product_info{
+	width: 95%;
+	height: 140px;
+	/*background-color: green;*/
+	margin: 0px auto;
+	margin-top: 10px;
+}
+.product_info h2,.product_info h5,.company_info h2,.company_info h5{
+	margin: 0;
+	font-weight: 300;
+}
+.product_info h5,.company_info h5{
+	margin-top: 5px;
+}
+.product_price{
+   margin-top: 15px;
+   font-weight: bold;
+}
+.product_btn{
+	width: 80%;
+	
+	margin: 0 auto;
+	margin-top: 10px;
+	height: 40px;
+
+}
+.product_btn button{
+	width: 30%;
+	margin: 0 auto;
+	height: 100%;
+	padding: 0;
+	border-radius: 2px;
+	border: none;
+	color: #ffffff;
+	background-color: #2E123d;
+	margin-right: 8px;
+}
+.add_btn{
+	width: 15%;
+	margin: 0 auto;
+	background-color: red;
+	height: 40px;
+	margin-top: 40px;
+}
+.add_btn button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: #2E123d;
+	color: #fff;
+}
