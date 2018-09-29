@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 // import {AuthService} from '../../services/auth.service';
-import { Http ,Headers } from '@angular/http';
+import { Http ,Headers, ResponseOptions } from '@angular/http';
 import 'rxjs/add/operator/map'
+import { Router} from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ import 'rxjs/add/operator/map'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private http:Http,private router:Router,private authService:AuthService) { }
   Email;
   Password;
 onSubmit(){
@@ -19,9 +22,11 @@ onSubmit(){
     Email:this.Email,
     Password:this.Password
   }
-  this.http.post('http://localhost:3000/auth/login',formdata).subscribe(res=>{
-    console.log(res);
-    
+  this.http.post('http://localhost:3000/auth/login',formdata).subscribe((res)=>{
+    this.authService.token = res.headers.get('x-auth');
+        
+
+    this.router.navigate(['']);
   },
   err =>{
     console.log(err)

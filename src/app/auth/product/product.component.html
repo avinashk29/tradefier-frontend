@@ -4,18 +4,20 @@
         <h2>Product Form</h2>
       </div>
   <div class="form">
+    <form (submit)="onSubmit()">
     <ul>
-     <li><input type="text" name="ProductName" placeholder="Product Name"></li>
-     <li><input type="text" name="ComapnyName" placeholder="Company Name"></li>
-     <li><input type="text" name="IndustryyName" placeholder="Industry Name"></li>
+     <li><input type="text" name="ProductName" [(ngModel)]="ProductName" placeholder="Product Name"></li>
+     <li><input type="text" name="CompanyName" [(ngModel)]="CompanyName"  placeholder="Company Name"></li>
+     <li><input type="text" name="IndustryName" [(ngModel)]="IndustryName" placeholder="Industry Name"></li>
      <li class="image_btn">
-       <div class="image_link"><input type="text" placeholder="Image Url"></div>
-       <div class="image_button"><button>Add Image</button></div>
+       <div class="image_link"><input name="image_link" type="text" [(ngModel)]="image_link" placeholder="Image Url"></div>
+       
      </li>
      <li>
-       <textarea placeholder="Enter the description of the product"></textarea>
+       <textarea name="description" placeholder="Enter the description of the product" [(ngModel)]="description"></textarea>
      </li>
-     <div class="btn"><button>Creat Product</button></div>
+     <div class="btn" type="submit"><button>Creat Product</button></div>
     </ul>
+  </form>
   </div>
 </div>

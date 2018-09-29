@@ -4,14 +4,16 @@
         <h2>SIGNUP FORM</h2>
       </div>
   <div class="form">
+      <form (submit)="onSubmit()">
     <ul>
-     <li><input type="text" name="userName" placeholder="User Name"></li>
-     <li><input type="password" name="password" placeholder="Enter Password"></li>
-    <li><input type="email" name="email" placeholder="Enter Email"></li>
-     <li><input type="number" name="mobile_number" placeholder="Mobile Number"></li>
-     <li><input type="text" name="address" placeholder="Adderss"></li>
-     <li><input type="date" name="dob" placeholder="Date Of Birth"></li>
+     <li><input type="text" name="UserName" placeholder="User Name" [(ngModel)]="UserName"></li>
+     <li><input type="password" name="Password" placeholder="Enter Password" [(ngModel)]="Password"></li>
+    <li><input type="email" name="Email" placeholder="Enter Email" [(ngModel)]="Email"></li>
+     <li><input type="number" name="Mobile" placeholder="Mobile Number" [(ngModel)]="Mobile"></li>
+     <li><input type="text" name="Address" placeholder="Adderss" [(ngModel)]="Address"></li>
+     <!-- <li><input type="date" name="dob" placeholder="Date Of Birth" [(ngModel)]="Email"></li> -->
      <div class="btn"><button>Sign Up</button></div>
     </ul>
+    </form>
   </div>
 </div>

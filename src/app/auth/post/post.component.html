@@ -4,18 +4,21 @@
         <h2>Post Form</h2>
       </div>
   <div class="form">
+    <form (submit)="onSubmit()">
     <ul>
      <li class="image_btn">
-       <div class="image_link"><input type="text" placeholder="Image Url"></div>
-       <div class="image_button"><button>Add Image</button></div>
+       <div class="image_link"><input type="text" name="image" [(ngModel)]="image" placeholder="Image Url"></div>
+       
      </li>
-     <li><input type="text" name="ProductName" placeholder="Post Content"></li>
-     <li><input type="time" placeholder="Post Time"></li>
+     <li><input type="text"  name="content" [(ngModel)]="content" placeholder="Post Content"></li>
+    
      
      <div class="btn"><button>Creat Post</button></div>
     </ul>
+  </form>
   </div>
-  <div class="comment_section">
+
+  <!-- <div class="comment_section">
       <div class="page_heading">
           <h2>Comments Section</h2>
         </div>
@@ -23,6 +26,6 @@
     <li><input type="text" name="ProductName" placeholder="Post Content"></li>
     <div class="btn"><button>Add Comment</button></div>
 </ul>
-  </div>
+  </div> -->
 </div>
 
