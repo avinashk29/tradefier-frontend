@@ -24,8 +24,8 @@ product;
  
 )
 
-this.token =  this.storage.get('token');
-console.log(this.token)
+this.authService.token =  this.storage.get('token');
+
 
   }
  
