@@ -1,13 +1,13 @@
 <app-header2></app-header2>
 <div class="conatiner">
 <div class="product_list">
-  <div class="product_card">
+  <div class="product_card" *ngFor="let product of products">
     <div class="product_image">
-      <img src="assets\images\product.jpg">
+      <img src="{{product.image}}">
     </div>
     <div class="product_info">
-      <h2>Product Name</h2>
-      <h5>Company Name</h5>
+      <h2>{{product.name}}</h2>
+      <h5>{{product.company}}</h5>
       <div class="product_price">
         <span> &#8377; 300</span>
       </div>

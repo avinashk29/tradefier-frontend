@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import { StorageServiceModule } from 'angular-webstorage-service';
 import{HttpModule} from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
 import { CompanyListingComponent } from './company-listing/company-listing.component';
 import { FeedListingComponent } from './feed-listing/feed-listing.component';
 import { Header2Component } from './header2/header2.component';
+import { StorageServiceModule} from 'angular-webstorage-service';
 const appRoutes:Routes=[
   {path:'',component:ProductListingComponent  },
   {path:'login',component:LoginComponent },
@@ -49,13 +51,15 @@ const appRoutes:Routes=[
     ProductListingComponent,
     CompanyListingComponent,
     FeedListingComponent,
-    Header2Component
+    Header2Component,
+     
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    StorageServiceModule 
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

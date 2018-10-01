@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 // import {AuthService} from '../../services/auth.service';
 import { Http ,Headers, ResponseOptions } from '@angular/http';
 import 'rxjs/add/operator/map'
@@ -12,10 +13,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private http:Http,private router:Router,private authService:AuthService) { }
+ 
+ constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,private http:Http,private router:Router,private authService:AuthService) { }
   Email;
   Password;
+  token;
 onSubmit(){
   
   let formdata = {
@@ -24,7 +26,7 @@ onSubmit(){
   }
   this.http.post('http://localhost:3000/auth/login',formdata).subscribe((res)=>{
     this.authService.token = res.headers.get('x-auth');
-        
+        this.storage.set('token',this.authService.token)
 
     this.router.navigate(['']);
   },
@@ -34,6 +36,8 @@ onSubmit(){
 )
 }
   ngOnInit() {
+  
+   
   }
 
 }

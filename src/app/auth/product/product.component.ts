@@ -27,6 +27,7 @@ description;
 
  this.authService.addProduct(product).subscribe(product=>{
    console.log(product);
+   this.authService.product = product;
  },
  err=>{
    console.log(err)
