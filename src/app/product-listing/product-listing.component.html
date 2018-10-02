@@ -2,7 +2,12 @@
 <div class="conatiner">
 <div class="product_list">
   <div class="product_card" *ngFor="let product of products">
-    <div class="product_image">
+    
+    <div class="product_image" style="position: relative;">
+       <a  (click)="bookmark_set(product)" ><div class="bookmark" style="position: absolute;">
+            <div class="bookmark_add" *ngIf="!product.bookmark"><img src="assets\images\bookmark.svg"></div>
+            <div class="bookmark_remove" *ngIf="product.bookmark"><img src="assets\images\bookmark_on.svg"></div>
+          </div></a> 
       <img src="{{product.image}}">
     </div>
     <div class="product_info">
@@ -12,9 +17,9 @@
         <span> &#8377; 300</span>
       </div>
       <div class="product_btn">
-        <button>CONTACT</button>
-        <button>something</button>
-        <button>RESOURCES</button>
+        <button (click)= "onDeleteClick(product._id)">Delete</button>
+        <button [routerLink]="['/product_edit/' + product._id]">Edit</button>
+        
       </div>
    </div>
   </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import { AuthService } from '../services/auth.service';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,private authService:AuthService) { }
+token;
+username;
 
+
+user_signed_in:boolean;
   ngOnInit() {
+     console.log (this.authService.token);
+     if(this.authService.token){
+          this.user_signed_in = true;
+     }
+     else{
+      this.user_signed_in = false;
+     }
+     
+     this.authService.uname =  this.storage.get('UserName');
+    this.username =  this.authService.uname;
+     console.log()
+     this.authService.uname;
+   }
+
+
+   
+     
+  
   }
 
-}
+

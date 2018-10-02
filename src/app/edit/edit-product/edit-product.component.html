@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="conatiner">
+    <div class="page_heading">
+        <h2>Update Product</h2>
+      </div>
+  <div class="form">
+    <form (submit)="onSubmit()">
+    <ul>
+     <li><input type="text" name="ProductName" [(ngModel)]="ProductName" placeholder={{product.name}}></li>
+     <li><input type="text" name="CompanyName" [(ngModel)]="CompanyName"  placeholder={{product.company}}></li>
+     <li><input type="text" name="IndustryName" [(ngModel)]="IndustryName" placeholder="{{product.industry}}"></li>
+     <li class="image_btn">
+       <div class="image_link"><input name="image_link" type="text" [(ngModel)]="image_link" placeholder="{{product.image}}"></div>
+       
+     </li>
+     <li>
+       <textarea name="description" placeholder="{{product.description}}" [(ngModel)]="description"></textarea>
+     </li>
+     <div class="btn" type="submit"><button>Update  Product</button></div>
+    </ul> 
+  </form>
+  </div>
+</div>

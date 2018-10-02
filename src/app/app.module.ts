@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import {FlashMessageModule} from 'angular-flash-message';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 // import { StorageServiceModule } from 'angular-webstorage-service';
 import{HttpModule} from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
@@ -20,6 +22,7 @@ import { CompanyListingComponent } from './company-listing/company-listing.compo
 import { FeedListingComponent } from './feed-listing/feed-listing.component';
 import { Header2Component } from './header2/header2.component';
 import { StorageServiceModule} from 'angular-webstorage-service';
+import { EditProductComponent } from './edit/edit-product/edit-product.component';
 const appRoutes:Routes=[
   {path:'',component:ProductListingComponent  },
   {path:'login',component:LoginComponent },
@@ -28,11 +31,12 @@ const appRoutes:Routes=[
   {path:'company',component: CompanyComponent },
   {path:'post',component:PostComponent },
   {path:'company_page',component:CompanyPageComponent },
-  {path:'UserPage',component:UserPageComponent },
+  {path:'UserPage/:UserName',component:UserPageComponent },
   {path:'ProductPage',component:ProductPageComponent },
   {path:'product_listing',component:ProductListingComponent },
   {path:'company_listing',component:CompanyListingComponent },
-  {path:'feed_listing',component:FeedListingComponent }
+  {path:'feed_listing',component:FeedListingComponent },
+  {path:'product_edit/:_id',component:EditProductComponent }
  
 
 ]
@@ -52,6 +56,8 @@ const appRoutes:Routes=[
     CompanyListingComponent,
     FeedListingComponent,
     Header2Component,
+    EditProductComponent,
+    
      
   ],
   imports: [
@@ -59,7 +65,8 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpModule,
-    StorageServiceModule 
+    StorageServiceModule,
+      FlashMessagesModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

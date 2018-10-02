@@ -10,10 +10,12 @@ export class AuthService {
   token;
 product;
 post;
+uname;
+
   login(formdata){
       
     return this.http.post('http://localhost:3000/auth/login',formdata)
-           .map(res=>res.json())
+    .map(res=>res.json())
 
   }
 
@@ -54,5 +56,15 @@ post;
     return this.http.get('http://localhost:3000/post',{headers:headers})
     .map(res=>res.json())
   } 
-
+  deleteProduct(_id){
+    return this.http.delete('http://localhost:3000/products/' +_id,)
+    .map(res=>res.json())
+  }
+  updateProduct(product){
+    return this.http.put('http://localhost:3000/products/' +product._id,product)
+    .map(res=>res.json())
+   
+  }
 }
+
+

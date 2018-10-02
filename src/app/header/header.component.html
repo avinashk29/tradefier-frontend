@@ -2,7 +2,8 @@
 	<div class="header">
 		<div class="header_element">
 			<div class="header_listing">
-			<div class="header_logo">
+			<div class="header_logo" >
+				<a [routerLink]="['/product_listing/']" >HOME</a>
 			</div>
 			<div class="search_bar">
 				<div class="search_box">
@@ -12,7 +13,8 @@
 			</div>
 			<div class="listing_options">
 				<!-- <div class="option service"><a [routerLink]="['/signup']">SIGN UP</a></div> -->
-				<div class="option option1"><a [routerLink]="['/login']">LOGIN</a></div>
+				<div *ngIf="!user_signed_in" class="option option1"><a [routerLink]="['/login']" >LOGIN</a></div>
+				<div  *ngIf="user_signed_in"  class="option option1" style="text-transform: capitalize;"><a [routerLink]="['/UserPage/' +username ]">{{this.authService.uname}}</a></div>
 				<!-- <div class="option option2"><a [routerLink]="['/product']">PRODUCTS</a></div>
 				<div class="option signup"><a [routerLink]="['/post']">POST</a></div>
 				<div class="option signup" style="text-transform: uppercase"><a [routerLink]="['/company']">Company</a></div> -->
