@@ -1,16 +1,16 @@
 <app-header2></app-header2>
 <div class="conatiner">
 <div class="feed_listing">
-  <div class="feed_card">
+  <div class="feed_card" *ngFor="let post of posts">
     <div class="feed_image">
-        <img src="assets\images\feed.jpg">
+        <img src="{{post.Image}}">
     </div>
     <div class="feed_info">
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an </p>
+      <p>{{post.Content}}</p>
     </div>
   </div>
   </div>
   </div>
   <div class="add_btn">
     <button [routerLink]="['/post']">Add Feed</button>
-  </div>
+  </div> 

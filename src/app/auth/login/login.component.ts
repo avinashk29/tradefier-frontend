@@ -50,11 +50,11 @@ onSubmit(){
   
    
   }
-  showFlash() {
-    // 1st parameter is a flash message text
-    // 2nd parameter is optional. You can pass object with options.
-    this.flashMessage.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 2000 });
-    console.log("test")
+  // showFlash() {
+  //   // 1st parameter is a flash message text
+  //   // 2nd parameter is optional. You can pass object with options.
+  //   this.flashMessage.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 2000 });
+  //   console.log("test")
 
-  }
+  // }
 }

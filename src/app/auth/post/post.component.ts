@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-post',
@@ -9,9 +10,9 @@ import { AuthService } from '../../services/auth.service';
 export class PostComponent implements OnInit {
 
   
-  constructor(private authService:AuthService) { }
- image_link;
-description;
+constructor(private authService:AuthService,public router:Router) { }
+ image;
+ content;
 
 
   ngOnInit() {
@@ -19,16 +20,19 @@ description;
 
   onSubmit(){
     let post ={
-      image:this.image_link,
-      description:this.description
+      Image:this.image,
+      Content:this.content
     }
- 
-  this.authService.addPost(post).subscribe(post=>{
-    console.log(post);
-    this.authService.post = post;
+    
+    this.authService.addPost(post).subscribe((post)=>{
+      console.log(post);
+      this.authService.post = post;
+    
   },
-  err=>{
+  (err)=>{
     console.log(err)
   })
-  }
- }
+ this.router.navigate(['/feed_listing']);
+  } 
+}
+

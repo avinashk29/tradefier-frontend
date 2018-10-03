@@ -11,6 +11,8 @@ export class AuthService {
 product;
 post;
 uname;
+company;
+company_id;
 
   login(formdata){
       
@@ -44,8 +46,7 @@ uname;
   addPost(post){
     let headers=new Headers();
     headers.append('x-auth',this.token);
-    console.log(this.token);
-    return this.http.post('http://localhost:3000/post',post,{headers:headers})
+    return this.http.post('http://localhost:3000/post/add',post,{headers:headers})
     .map(res=>res.json())
   }
 
@@ -65,6 +66,19 @@ uname;
     .map(res=>res.json())
    
   }
+  addCompany(company){
+    let headers=new Headers();
+    headers.append('x-auth',this.token);
+    return this.http.post('http://localhost:3000/company/add',company,{headers:headers})
+    .map(res=>res.json())
+  }
+  getCompany(_id){
+    let headers=new Headers();
+    headers.append('x-auth',this.token);
+    return this.http.post('http://localhost:3000/company/',{headers:headers})
+    .map(res=>res.json())
+  }
+
 }
 
 

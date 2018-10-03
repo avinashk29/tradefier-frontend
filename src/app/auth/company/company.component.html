@@ -3,23 +3,22 @@
     <div class="page_heading">
         <h2>Company Form</h2>
       </div>
-  <div class="form">
+  <div class="form"  >
+    <form (submit)="onSubmit()">
     <ul>
-     <li><input type="text" name="ProductName" placeholder="Product Name"></li>
-     <li><input type="text" name="ComapnyName" placeholder="Company Name"></li>
-     <li><input type="text" name="IndustryyName" placeholder="Industry Name"></li>
-     <li><input type="text" name="website" placeholder="Website Link"></li>
-     <li><input type="email" name="mail" placeholder="Email Address"></li>
-     <li><input type="number" name="number" placeholder="Phone Number"></li>
-     <li><input type="text" name="country" placeholder="Country"></li>
-     <li class="image_btn">
+     <li><input type="text" name="CompanyName"[(ngModel)]="CompanyName" placeholder="Company Name"></li>
+     <li><input type="text" name="Category" [(ngModel)]="Category" placeholder="Industry Name"></li>
+     <li><input type="text" name="Website" [(ngModel)]="Website" placeholder="Website Link"></li>
+     <li><input type="text" name="Location_company"[(ngModel)]="Location_company" placeholder="Country"></li>
+     <!-- <li class="image_btn">
        <div class="image_link"><input type="text" placeholder="Image Url"></div>
        <div class="image_button"><button>Add Image</button></div>
      </li>
      <li>
        <textarea placeholder="Enter the description of the compny"></textarea>
-     </li>
-     <div class="btn"><button>Creat Company</button></div>
+     </li> -->
+     <div class="btn"><button type="submit">Creat Company</button></div>
     </ul>
+  </form>
   </div>
 </div>

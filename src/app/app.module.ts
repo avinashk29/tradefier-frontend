@@ -30,7 +30,7 @@ const appRoutes:Routes=[
   {path:'product',component:ProductComponent },
   {path:'company',component: CompanyComponent },
   {path:'post',component:PostComponent },
-  {path:'company_page',component:CompanyPageComponent },
+  {path:'company_page/:id',component:CompanyPageComponent },
   {path:'UserPage/:UserName',component:UserPageComponent },
   {path:'ProductPage',component:ProductPageComponent },
   {path:'product_listing',component:ProductListingComponent },

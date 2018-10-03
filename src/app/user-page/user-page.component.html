@@ -26,6 +26,10 @@
       </ul>
 
     </div>
+    <div class="creat_company_btn">
+      <button class="company_btn" [routerLink]= "['/company']" *ngIf="addcomapnay">Creat Company</button>
+      <button class="company_btn" [routerLink]= "['/company']" *ngIf="!addcomapnay">Go to Company</button>
+    </div>
 
   </div>
 </div>
