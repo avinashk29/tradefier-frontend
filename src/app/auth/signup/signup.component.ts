@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Http ,Headers } from '@angular/http';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,7 +9,7 @@ import { Http ,Headers } from '@angular/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService, public router:Router) { }
 Email;
 Password;
 Mobile;
@@ -35,7 +36,6 @@ onSubmit(){
       console.log(err)
     }
 )
-  
-
+  this.router.navigate(['']);
 }
 }

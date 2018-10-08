@@ -23,20 +23,22 @@ import { FeedListingComponent } from './feed-listing/feed-listing.component';
 import { Header2Component } from './header2/header2.component';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { EditProductComponent } from './edit/edit-product/edit-product.component';
+import { AuthGuard } from './auth.guard';
+import { LoginAuthGuard } from './login-auth.guard';
 const appRoutes:Routes=[
-  {path:'',component:ProductListingComponent  },
-  {path:'login',component:LoginComponent },
-  {path:'signup',component:SignupComponent },
-  {path:'product',component:ProductComponent },
-  {path:'company',component: CompanyComponent },
-  {path:'post',component:PostComponent },
-  {path:'company_page',component:CompanyPageComponent },
-  {path:'UserPage/:UserName',component:UserPageComponent },
-  {path:'ProductPage',component:ProductPageComponent },
-  {path:'product_listing',component:ProductListingComponent },
-  {path:'company_listing',component:CompanyListingComponent },
-  {path:'feed_listing',component:FeedListingComponent },
-  {path:'product_edit/:_id',component:EditProductComponent }
+  {path:'',component:ProductListingComponent, canActivate:[AuthGuard]},
+  {path:'login',component:LoginComponent, canActivate:[LoginAuthGuard]},
+  {path:'signup',component:SignupComponent, canActivate:[LoginAuthGuard]},
+  {path:'product',component:ProductComponent, canActivate:[AuthGuard]},
+  {path:'company',component: CompanyComponent, canActivate:[AuthGuard] },
+  {path:'post',component:PostComponent, canActivate:[AuthGuard]},
+  {path:'company_page',component:CompanyPageComponent , canActivate:[AuthGuard]},
+  {path:'UserPage/:UserName',component:UserPageComponent, canActivate:[AuthGuard]},
+  {path:'ProductPage',component:ProductPageComponent, canActivate:[AuthGuard]},
+  {path:'product_listing',component:ProductListingComponent , canActivate:[AuthGuard]},
+  {path:'company_listing',component:CompanyListingComponent, canActivate:[AuthGuard] },
+  {path:'feed_listing',component:FeedListingComponent , canActivate:[AuthGuard]},
+  {path:'product_edit/:_id',component:EditProductComponent , canActivate:[AuthGuard]}
  
 
 ]
@@ -68,7 +70,7 @@ const appRoutes:Routes=[
     StorageServiceModule,
       FlashMessagesModule.forRoot(),
   ],
-  providers: [AuthService],
+  providers: [AuthService ,AuthGuard, LoginAuthGuard],
   bootstrap: [AppComponent]
 
 })
