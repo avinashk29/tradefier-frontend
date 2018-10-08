@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,private authService:AuthService) { }
 token;
 username;
-
+showdropdown:boolean=false;
 
 user_signed_in:boolean;
   ngOnInit() {
@@ -26,9 +26,14 @@ user_signed_in:boolean;
      }
      
      this.authService.uname =  this.storage.get('UserName');
+     this.authService.company_name = this.storage.get('company_name');
+     console.log(this.authService.company_name);
     this.username =  this.authService.uname;
      console.log()
      this.authService.uname;
+   }
+   Dropdown(){
+     this.showdropdown=!this.showdropdown;
    }
 
 

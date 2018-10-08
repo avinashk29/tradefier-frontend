@@ -37,6 +37,7 @@ onSubmit(){
         this.storage.set('UserName',JSON.parse(res["_body"]).UserName);
         // this.storage.set('UserName',res.us)
        this.authService.uname = JSON.parse(res["_body"]).UserName;
+       
         this.router.navigate(['']);
  
   },

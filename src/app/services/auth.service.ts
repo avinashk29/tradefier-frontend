@@ -13,6 +13,7 @@ post;
 uname;
 company;
 company_id;
+company_name;
 
   login(formdata){
       
@@ -72,10 +73,11 @@ company_id;
     return this.http.post('http://localhost:3000/company/add',company,{headers:headers})
     .map(res=>res.json())
   }
-  getCompany(_id){
+  getCompany(){
     let headers=new Headers();
     headers.append('x-auth',this.token);
-    return this.http.post('http://localhost:3000/company/',{headers:headers})
+    console.log(this.token);
+    return this.http.get('http://localhost:3000/company',{headers:headers})
     .map(res=>res.json())
   }
 

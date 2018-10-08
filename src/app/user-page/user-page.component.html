@@ -11,11 +11,11 @@
   <div class="user_profile">
     
     <div class="user_profile_pic">
-      <img src="assets\images\profile.jpg">
+      <img src="assets\images\profil.jpg">
     </div>
     <div class="user_profile_info">
       <ul>
-        <li><div class="username" style="text-transform: uppercase;"><img src="assets\images\svg\002-avatar.svg"> Kalpesh sir</div></li>
+        <li><div class="username" style="text-transform: uppercase;"><img src="assets\images\svg\002-avatar.svg">Ram Ram</div></li>
         <li><div class="email"><img src="assets\images\gmail.svg">Email</div></li>
         <li><div class="country"><img src="assets\images\flag.svg">country</div></li>
         <li><div class="mobile"><img src="assets\images\contact.svg">contact no</div></li> 
@@ -27,8 +27,8 @@
 
     </div>
     <div class="creat_company_btn">
-      <button class="company_btn" [routerLink]= "['/company']" *ngIf="addcomapnay">Creat Company</button>
-      <button class="company_btn" [routerLink]= "['/company']" *ngIf="!addcomapnay">Go to Company</button>
+      <button class="company_btn" [routerLink]= "['/company']" *ngIf="!addcomapnay" (click)="onAddCompany()">Creat Company</button>
+      <button class="company_btn" [routerLink]= "['/company_page']" *ngIf="addcomapnay" (click)="onComapany()">Go to Company</button>
     </div>
 
   </div>

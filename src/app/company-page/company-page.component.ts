@@ -12,23 +12,26 @@ import {Router,RouterModule, ActivatedRoute ,Params} from '@angular/router'
 export class CompanyPageComponent implements OnInit {
 
   constructor(private authService:AuthService,@Inject(LOCAL_STORAGE) private storage: WebStorageService,public router:Router,public route:ActivatedRoute) { }
-  company;
+  com;
   companies;
-  id;
+ 
+
   ngOnInit() {
-   
-    this.id= this.route.snapshot.params['_id'];
-    this.authService.getCompany(this.id).subscribe(companies=>{
-      this.company=companies;
-    
-      
-    },
-    err=>{
+    this.authService.getCompany().subscribe(companies=>{
+        this.companies=companies.stageOne; 
+    }, 
+   err=>{
       console.log(err);
-      console.log(this.id);
-    }
-  )
+   
+    })
+    this.authService.token =  this.storage.get('token');
+   
+
+    console.log(this.companies.stageOne.companyName);
   }
-  
 
 }
+
+  
+
+

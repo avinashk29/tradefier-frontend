@@ -15,6 +15,7 @@ export class CompanyComponent implements OnInit {
   Location_company;
   Website;
   id;
+
   ngOnInit() {
     this.storage.set('id',this.authService.company_id)
   }
@@ -30,7 +31,9 @@ this.authService.addCompany(company).subscribe((company)=>{
   console.log(company._id);
   this.authService.company = company;
   this.authService.company_id = company._id;
-  this.router.navigate(['/company_page/' + company._id])
+  this.storage.set('company_id' ,this.authService.company_id);
+  this.storage.set('company_name' ,this.CompanyName);
+  
 },
 (err)=>{
   console.log(err);
@@ -38,8 +41,8 @@ this.authService.addCompany(company).subscribe((company)=>{
 )
 var mycompany = this.CompanyName.split(" " , 1);
 console.log(mycompany)
+this.router.navigate(['/company_page'])
 this.id=this.authService.company_id;
-
-console.log(this.id)
 }
+
 }

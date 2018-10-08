@@ -11,18 +11,33 @@ export class UserPageComponent implements OnInit {
 
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,private authService:AuthService,private router:Router) { }
   uname;
-  addcomapnay:boolean=true;
+  addcomapnay:boolean=false;
+  company_switch:boolean=false;
   ngOnInit() {
+    // this.storage.set('company_id',this.authService.company_id);
+
+    // this.storage.set('company_id' ,this.authService.company_id)
+    this.authService.company_id = this.storage.get('company_id')
+   console.log(this.authService.company_id );
     // this.authService.user= this.uname;
     if(this.authService.company_id != null){
-      this.addcomapnay=false;
+      this.addcomapnay = true;
     }
+    
 
   }
   onLogout(){
   
     this.storage.remove('token');
+    // this.storage.remove('company_id');
     
+    }
+    // onComapany(){
+    //   this.company_switch=true;
+    //   console.log(this.company_switch)
+    // }
+    onAddCompany(){
+     
     }
 
 }
