@@ -39,7 +39,6 @@ onSubmit(){
       console.log(err)
     }
 )
-  
-
+  this.router.navigate(['']);
 }
 }
