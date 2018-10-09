@@ -7,7 +7,9 @@
     <form (submit)="onSubmit()">
     <ul>
      <li class="image_btn">
-       <div class="image_link"><input type="text" name="image" [(ngModel)]="image" placeholder="Image Url"></div>
+       <div class="image_link">
+         <input type="file" (change)=onFileSelected($event) name="image" >
+      </div>
        
      </li>
      <li><input type="text"  name="content" [(ngModel)]="content" placeholder="Post Content"></li>

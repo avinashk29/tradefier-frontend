@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 import { AuthService } from '../../services/auth.service';
-import { Http ,Headers } from '@angular/http';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,7 +9,7 @@ import { Http ,Headers } from '@angular/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,private authService:AuthService,private router:Router) { }
 Email;
 Password;
 Mobile;
@@ -26,10 +27,13 @@ onSubmit(){
   }
   this.authService.signup(formdata).subscribe(
     
-    res =>{
-      let header = new Headers();
-
-     console.log(res);
+    res =>{console.log(res);
+      this.authService.token = res.headers.get('x-auth');
+      this.storage.set('token',this.authService.token);
+      this.storage.set('UserName',JSON.parse(res["_body"]).UserName);
+     this.authService.uname = JSON.parse(res["_body"]).UserName;
+    this.router.navigate([''])
+     
     },
     err=>{
       console.log(err)

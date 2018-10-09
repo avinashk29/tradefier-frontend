@@ -12,21 +12,25 @@ export class ProductComponent implements OnInit {
 ProductName;
 CompanyName;
 IndustryName;
-image_link;
+image;
 description;
 isEdit:boolean=true;
   ngOnInit() {
   }
+  onFileSelected(event){
+    this.image= <File>event.target.files[0];
+     }
  onSubmit(){
-   let product ={
-     name:this.ProductName,
-     company:this.CompanyName,
-     industry: this.IndustryName,
-     image:this.image_link,
-     description:this.description
-   }
+   
+  const formData:FormData = new FormData();
+   
+   formData.append('name',this.ProductName);
+   formData.append('company',this.CompanyName);
+   formData.append('industry',this.IndustryName);
+   formData.append('Image',this.image);
+   formData.append('description',this.description);
 
- this.authService.addProduct(product).subscribe(product=>{
+ this.authService.addProduct(formData).subscribe(product=>{
    console.log(product);
    this.authService.product = product;
  },

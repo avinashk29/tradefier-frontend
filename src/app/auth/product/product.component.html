@@ -10,7 +10,7 @@
      <li><input type="text" name="CompanyName" [(ngModel)]="CompanyName"  placeholder="Company Name"></li>
      <li><input type="text" name="IndustryName" [(ngModel)]="IndustryName" placeholder="Industry Name"></li>
      <li class="image_btn">
-       <div class="image_link"><input name="image_link" type="text" [(ngModel)]="image_link" placeholder="Image Url"></div>
+       <div class="image_link"><input name="image" (change)=onFileSelected($event) type="file" accept="image/*" placeholder="Image Url"></div>
        
      </li>
      <li>

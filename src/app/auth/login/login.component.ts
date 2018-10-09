@@ -27,7 +27,7 @@ onSubmit(){
     Email:this.Email,
     Password:this.Password
   }
-  this.http.post('http://localhost:3000/auth/login',formdata).subscribe((res)=>{
+  this.http.post('http://ec2-52-66-239-193.ap-south-1.compute.amazonaws.com/auth/login',formdata).subscribe((res)=>{
       this.user = res;
      console.log(JSON.parse(res["_body"]).UserName); 
      
@@ -37,7 +37,6 @@ onSubmit(){
         this.storage.set('UserName',JSON.parse(res["_body"]).UserName);
         // this.storage.set('UserName',res.us)
        this.authService.uname = JSON.parse(res["_body"]).UserName;
-       
         this.router.navigate(['']);
  
   },

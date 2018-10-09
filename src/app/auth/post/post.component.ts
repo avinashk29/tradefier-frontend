@@ -18,13 +18,16 @@ constructor(private authService:AuthService,public router:Router) { }
   ngOnInit() {
   }
 
+  onFileSelected(event){
+    this.image= <File>event.target.files[0];
+     }
   onSubmit(){
-    let post ={
-      Image:this.image,
-      Content:this.content
-    }
+    const formData: FormData = new FormData();
+    console.log(this.image);
+    formData.append("Image",this.image);
+    formData.append("Content",this.content)
     
-    this.authService.addPost(post).subscribe((post)=>{
+    this.authService.addPost(formData).subscribe((post)=>{
       console.log(post);
       this.authService.post = post;
     
